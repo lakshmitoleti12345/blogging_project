@@ -5,58 +5,84 @@
 {% block content %}
 
 <style>
-.upload-container{
-    width: 50%;
-    margin: 40px auto;
-    padding: 30px;
+body{
     background-color: black;
-    border: 1px solid rgb(243,7,208);
-    border-radius: 20px;
-    box-shadow: 0 0 15px rgba(243,7,208,0.4);
 }
 
+/* Main container */
+.upload-container{
+    width: 42%;
+    margin: 50px auto;
+    padding: 30px;
+    background: #111;
+    border: 1px solid rgb(243,7,208);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(243,7,208,0.25);
+    color: white;
+}
+
+/* Heading */
 .upload-container h2{
     text-align: center;
     color: rgb(243,7,208);
     margin-bottom: 25px;
+    font-size: 24px;
+    letter-spacing: 1px;
 }
 
+/* Labels */
 .upload-container label{
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
     color: white;
-    font-weight: bold;
-    margin-bottom: 8px;
 }
 
+/* Inputs + textarea */
 .upload-container .form-control{
-    background-color: #111;
+    width: 100%;
+    padding: 10px;
+    background: black;
     color: white;
     border: 1px solid rgb(243,7,208);
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 12px;
 }
 
+/* Focus effect */
 .upload-container .form-control:focus{
-    background-color: #111;
-    color: white;
     border-color: rgb(243,7,208);
     box-shadow: 0 0 10px rgba(243,7,208,0.5);
 }
 
+/* File input fix */
+.upload-container input[type="file"]{
+    padding: 8px;
+}
+
+/* Button */
 .upload-btn{
     width: 100%;
-    background-color: rgb(243,7,208);
+    background: rgb(243,7,208);
     color: white;
     border: none;
     padding: 12px;
     border-radius: 10px;
     font-weight: bold;
+    cursor: pointer;
     margin-top: 10px;
 }
 
+/* Button hover */
 .upload-btn:hover{
-    background-color: white;
+    background: white;
     color: rgb(243,7,208);
     transition: 0.3s;
+    border: 1px solid rgb(243,7,208);
 }
 
+/* Responsive */
 @media(max-width:768px){
     .upload-container{
         width: 90%;
