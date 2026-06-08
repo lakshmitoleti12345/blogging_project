@@ -1,0 +1,90 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<style>
+.edit-container{
+    width: 50%;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: black;
+    border: 1px solid rgb(243,7,208);
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(243,7,208,0.4);
+}
+
+.edit-container h2{
+    text-align: center;
+    color: rgb(243,7,208);
+    margin-bottom: 25px;
+}
+
+.edit-container .form-control{
+    background-color: #111;
+    color: white;
+    border: 1px solid rgb(243,7,208);
+}
+
+.edit-container .form-control:focus{
+    background-color: #111;
+    color: white;
+    border-color: rgb(243,7,208);
+    box-shadow: 0 0 10px rgba(243,7,208,0.5);
+}
+
+.update-btn{
+    width: 100%;
+    background-color: rgb(243,7,208);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.update-btn:hover{
+    background-color: white;
+    color: rgb(243,7,208);
+    transition: 0.3s;
+}
+
+@media(max-width:768px){
+    .edit-container{
+        width: 90%;
+    }
+}
+</style>
+
+<div class="edit-container">
+
+    <h2>Edit Blog</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label style="color:white;">Title</label>
+            <input
+                type="text"
+                name="title"
+                value="{{ post.title }}"
+                class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label style="color:white;">Description</label>
+            <textarea
+                name="message"
+                rows="5"
+                class="form-control">{{ post.message }}</textarea>
+        </div>
+
+        <button type="submit" class="update-btn">
+            Update Blog
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

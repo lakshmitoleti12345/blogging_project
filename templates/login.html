@@ -1,0 +1,131 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:black;
+        }
+
+        .container{
+            width:400px;
+            background:black;
+            padding:40px;
+            border-radius:20px;
+            border:1px solid rgb(243,7,208);
+            box-shadow:0 0 20px rgba(243,7,208,0.5);
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:25px;
+            color:rgb(243,7,208);
+        }
+
+        .input-group{
+            margin-bottom:20px;
+        }
+
+        label{
+            display:block;
+            margin-bottom:8px;
+            font-weight:bold;
+            color:white;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            border:1px solid rgb(243,7,208);
+            border-radius:10px;
+            outline:none;
+            background:#111;
+            color:white;
+        }
+
+        input:focus{
+            border-color:rgb(243,7,208);
+            box-shadow:0 0 10px rgba(243,7,208,0.5);
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            border:none;
+            background:rgb(243,7,208);
+            color:white;
+            font-size:16px;
+            font-weight:bold;
+            border-radius:10px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:white;
+            color:rgb(243,7,208);
+        }
+
+        p{
+            text-align:center;
+            margin-top:20px;
+            color:white;
+        }
+
+        a{
+            color:rgb(243,7,208);
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        a:hover{
+            text-decoration:underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Login</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <div class="input-group">
+            <label>Username</label>
+            <input type="text" name="username" required>
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" name="pass" required>
+        </div>
+
+        <button type="submit">Login</button>
+
+        <p>
+            Don't have an account?
+            <a href="{% url 'signup' %}">Register</a>
+        </p>
+
+    </form>
+
+</div>
+
+</body>
+</html>
+```

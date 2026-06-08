@@ -1,0 +1,106 @@
+```html
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+.upload-container{
+    width: 50%;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: black;
+    border: 1px solid rgb(243,7,208);
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(243,7,208,0.4);
+}
+
+.upload-container h2{
+    text-align: center;
+    color: rgb(243,7,208);
+    margin-bottom: 25px;
+}
+
+.upload-container label{
+    color: white;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.upload-container .form-control{
+    background-color: #111;
+    color: white;
+    border: 1px solid rgb(243,7,208);
+}
+
+.upload-container .form-control:focus{
+    background-color: #111;
+    color: white;
+    border-color: rgb(243,7,208);
+    box-shadow: 0 0 10px rgba(243,7,208,0.5);
+}
+
+.upload-btn{
+    width: 100%;
+    background-color: rgb(243,7,208);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.upload-btn:hover{
+    background-color: white;
+    color: rgb(243,7,208);
+    transition: 0.3s;
+}
+
+@media(max-width:768px){
+    .upload-container{
+        width: 90%;
+    }
+}
+</style>
+
+<div class="upload-container">
+    <h2>Upload Your Blog</h2>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label>Name</label>
+            <input type="text" class="form-control" name="name" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Email</label>
+            <input type="email" class="form-control" name="email" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Title</label>
+            <input type="text" class="form-control" name="title" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Description</label>
+            <textarea class="form-control" name="message" rows="5"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Upload Image</label>
+            <input type="file" class="form-control" name="image">
+        </div>
+
+        <button type="submit" class="upload-btn">
+            Upload Blog
+        </button>
+
+    </form>
+</div>
+
+{% endblock %}
+```
